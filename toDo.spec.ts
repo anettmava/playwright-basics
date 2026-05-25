@@ -23,6 +23,8 @@ test(
     await expect(inputByTitle).toBeVisible();
 
     await page.screenshot({ path: "screenshots/01_title.png", fullPage: true });
+    const videoPath = await page.video()?.path();
+    console.log("Video saved at:", videoPath);
   },
 );
 
@@ -78,6 +80,7 @@ test(
     await expect(input).toHaveValue("");
 
     await page.screenshot({ path: "screenshots/03-todo-added.png" });
+    const videoPath = await page.video()?.path();
   },
 );
 
@@ -96,6 +99,7 @@ test(
     await expect(counterById).toHaveText("17 / 100");
 
     await page.screenshot({ path: "screenshots/04_char_counter.png" });
+    const videoPath = await page.video()?.path();
   },
 );
 
@@ -110,3 +114,4 @@ test.skip(
     await page.screenshot({ path: "screenshots/05_logo.png" });
   },
 );
+
